@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "15891238387",
+    "project_id": "gamescatalog-bfe2d",
+    "storage_bucket": "gamescatalog-bfe2d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:15891238387:android:762dc8ebe48f32f43d5686",
+        "android_client_info": {
+          "package_name": "com.companyname.gamescatalog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "15891238387-15qrfu05ehv65t4jru311mp801u7sgen.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7SphofGWGCSQgbsgvK0vVf4Qw1zcPalg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "15891238387-15qrfu05ehv65t4jru311mp801u7sgen.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

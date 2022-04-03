@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GamesCatalog.Views.ItemsPage"
+             xmlns:local="clr-namespace:GamesCatalog.ViewModels"  
+             xmlns:model="clr-namespace:GamesCatalog.Models"
+             x:Name="BrowseItemsPage">
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior
+            IconOverride="LogOut" Command="{Binding OnBack}">
+        </BackButtonBehavior>
+    </Shell.BackButtonBehavior>
+
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="icon_filter.png" Command="{Binding FilterView}" />
+        <ToolbarItem IconImageSource="{Binding ViewIcon}" Command="{Binding ChangeView}" />
+    </ContentPage.ToolbarItems>
+    <!--
+      x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
+      https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
+    -->
+        <RefreshView x:DataType="local:ItemsViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy}">
+        <StackLayout>
+            <CollectionView x:Name="ItemsListView"
+                ItemsSource="{Binding Items}"
+                SelectionMode="None"
+                IsVisible="{Binding IsListView}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                        <Grid Padding="10"                       
+                          RowDefinitions="Auto, *"
+                          ColumnDefinitions="Auto, *"
+                          x:DataType="model:Item"
+                          BackgroundColor="White"
+                          x:Name="list">
+                            <Image Grid.RowSpan="2"
+                           Source="{Binding ImageSrc}"
+                           Aspect="Fill"
+                           HeightRequest="120"
+                           WidthRequest="120" 
+                                   />
+                        <Label Grid.Column="1"
+                           Text="{Binding Name}" 
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center"
+                           Margin="0,50,0,0"
+                               TextColor="Black"/>
+
+                        <Grid.GestureRecognizers >
+                            <TapGestureRecognizer
+                                NumberOfTapsRequired="1"
+                                Command="{Binding Source = {RelativeSource AncestorType={x:Type local:ItemsViewModel}}, Path = ItemTapped}"
+                                CommandParameter="{Binding .}">
+                            </TapGestureRecognizer>
+                        </Grid.GestureRecognizers>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+            <ScrollView>
+                <StackLayout>
+                    <CollectionView x:Name="ItemsGridView"
+                    ItemsSource="{Binding Items}"
+                    SelectionMode="None"
+                    IsVisible="{Binding IsGridView}"
+                     ItemsLayout="VerticalGrid, 2">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                             <Grid Padding="10"
+                            
+                               
+                            x:DataType="model:Item"
+                            BackgroundColor="White"
+                            x:Name="list">
+                             <Grid.RowDefinitions>
+                             <RowDefinition Height="100"></RowDefinition>
+                             </Grid.RowDefinitions>
+                             <Grid.ColumnDefinitions>
+                             <ColumnDefinition Width="100" />
+                             <ColumnDefinition Width="70" />
+                             </Grid.ColumnDefinitions>
+                             <Image Grid.RowSpan="2"
+                           Source="{Binding ImageSrc}"
+                           Aspect="Fill"
+                           HeightRequest="60"
+                           WidthRequest="60" />               
+                            <Label Grid.Column="1"
+                           Text="{Binding Name}" 
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                           TextColor="Black"
+                            Grid.RowSpan="2"
+                                   />
+                                    <Grid.GestureRecognizers >
+                                        <TapGestureRecognizer
+                                NumberOfTapsRequired="1"
+                                Command="{Binding Source = {RelativeSource AncestorType={x:Type local:ItemsViewModel}}, Path = ItemTapped}"
+                                CommandParameter="{Binding .}">
+                                        </TapGestureRecognizer>
+                                    </Grid.GestureRecognizers>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </RefreshView>
+</ContentPage>

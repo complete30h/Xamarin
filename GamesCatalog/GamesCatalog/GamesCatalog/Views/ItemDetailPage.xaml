@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+             x:Class="GamesCatalog.Views.ItemDetailPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="editbutton.png" Command="{Binding RedactItem}"/>
+    </ContentPage.ToolbarItems>
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior
+            Command="{Binding OnBack}">
+        </BackButtonBehavior>
+    </Shell.BackButtonBehavior>
+    
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20,10,20,10">
+                <StackLayout x:Name="stackLayout">
+                    <Image x:Name="Image" 
+                             Margin="0, 0, 20, 20"
+                             WidthRequest="280" 
+                             HeightRequest="270" 
+                             Aspect="Fill"
+                             Source="{Binding ImageSrc}"
+                             BackgroundColor="Transparent" />
+                    <StackLayout Orientation="Vertical">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="50" />
+                                <RowDefinition Height="50" />
+                                <RowDefinition Height="50" />
+                                <RowDefinition Height="50" />
+                                <RowDefinition Height="50" />
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+                            <Label Text="Name:" Grid.Column="0" Grid.Row="0" HorizontalOptions="FillAndExpand" />
+                            <Label Text="{Binding Text}" Grid.Column="1" Grid.Row="0" HorizontalOptions="FillAndExpand" />
+
+                            <Label Text="Description:" Grid.Column="0" Grid.Row="1" HorizontalOptions="FillAndExpand" />
+                            <Label Text="{Binding Description}" Grid.Column="1" Grid.Row="1" HorizontalOptions="FillAndExpand" />
+
+                            <Label Text="Mode:" Grid.Column="0" Grid.Row="2"  HorizontalOptions="FillAndExpand" />
+                            <Label Text="{Binding Mode}" Grid.Column="1" Grid.Row="2" HorizontalOptions="FillAndExpand" />
+
+                            <Label Text="Publisher:" Grid.Column="0" Grid.Row="3" HorizontalOptions="FillAndExpand" />
+                            <Label Text="{Binding Publisher}" Grid.Column="1" Grid.Row="3" HorizontalOptions="FillAndExpand" />
+
+                            <Label Text="Developer:" Grid.Column="0" Grid.Row="4" HorizontalOptions="FillAndExpand" />
+                            <Label Text="{Binding Developer}" Grid.Column="1" Grid.Row="4" HorizontalOptions="FillAndExpand" />
+
+                            <Label Text="Genre:" Grid.Column="0" Grid.Row="5" HorizontalOptions="FillAndExpand" />
+                            <Label Text="{Binding Genre}" Grid.Column="1" Grid.Row="5" HorizontalOptions="FillAndExpand" />
+
+                            <Label Text="Platforms:" Grid.Column="0" Grid.Row="6" HorizontalOptions="FillAndExpand" />
+                            <Label Text="{Binding Platforms}" Grid.Column="1" Grid.Row="6" HorizontalOptions="FillAndExpand" />
+
+                            <Label Text="Release:" Grid.Column="0" Grid.Row="7" HorizontalOptions="FillAndExpand" />
+                            <Label Text="{Binding ReleaseData}" Grid.Column="1" Grid.Row="7" HorizontalOptions="FillAndExpand" />
+                        </Grid>
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout x:Name="videoStack">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="Video" FontSize="20" Padding="0, 10, 10, 0" HorizontalOptions="Center" />
+                        <Button Text="Load" CornerRadius="30" Clicked="Button_Clicked" HorizontalOptions="Center"/>
+                    </StackLayout>
+                    <xct:MediaElement x:Name="player" 
+                                      HeightRequest="300"
+                                      ShowsPlaybackControls="True"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GamesCatalog.Views.ItemRedactorPage">
+    <ContentPage.Content>
+        <ScrollView VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout Margin="20" Padding="20, 0, 20, 0">
+                <Label Margin="0, 20, 0, 0" Text="Game info"  HorizontalOptions="Center"/>
+                <StackLayout Orientation="Vertical">
+                    <Entry Text="{Binding Name}"
+                           Placeholder="Name"
+                           HorizontalOptions="FillAndExpand" />
+                    <Entry Text="{Binding Description}"
+                           Placeholder="Description" 
+                           HorizontalOptions="FillAndExpand" />
+                    <Entry Text="{Binding Mode}"
+                           Placeholder="Mode"
+                           HorizontalOptions="FillAndExpand" />
+                    <Entry Text="{Binding Publisher}" 
+                           Placeholder="Publisher"
+                           HorizontalOptions="FillAndExpand" />
+                    <Entry Text="{Binding Developer}"
+                           Placeholder="Developer"
+                           HorizontalOptions="FillAndExpand" />
+                    <Entry Text="{Binding Genre}"
+                           Placeholder="Genre"
+                           HorizontalOptions="FillAndExpand" />
+                    <Entry Text="{Binding Platforms}" 
+                           Placeholder="Platforms"
+                           HorizontalOptions="FillAndExpand" />
+                    <Entry Text="{Binding Release}" 
+                           Placeholder="Release"
+                           HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+
+                <StackLayout Margin="0, 20, 0, 0" Orientation="Horizontal" HorizontalOptions="Center">
+                    <Button Text="Select image" CornerRadius="30" Command="{Binding AddImage}"/>
+                    <Button Text="Select video" CornerRadius="30" Command="{Binding AddVideo}"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical" Spacing="10">
+                    <Button Text="Add" 
+                            CornerRadius="30"
+                            Margin="0, 20, 0, 20"
+                            HorizontalOptions="Center"
+                            Command="{Binding Save}"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

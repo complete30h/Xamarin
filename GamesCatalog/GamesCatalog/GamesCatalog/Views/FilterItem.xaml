@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:GamesCatalog.ViewModels"  
+             xmlns:model="clr-namespace:GamesCatalog.Models"
+              xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+            x:Class="GamesCatalog.Views.FilterItem">
+    
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior
+            Command="{Binding OnBack}">
+        </BackButtonBehavior>
+    </Shell.BackButtonBehavior>
+
+    <ContentPage.Content>
+        <ScrollView VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout Margin="20" Padding="20, 0, 20, 0">
+                <Label Margin="0, 20, 0, 0" Text="Filter" FontAttributes="Bold" HorizontalOptions="Center"/>
+                <StackLayout Orientation="Vertical">
+                    <Entry x:Name="Text"
+                           Placeholder="Name" 
+                           HorizontalOptions="FillAndExpand" />
+                    <Entry x:Name="Mode"
+                           Placeholder="Mode"
+                           HorizontalOptions="FillAndExpand" />
+                    <Entry x:Name="Publisher"
+                           Placeholder="Publisher"
+                           HorizontalOptions="FillAndExpand" />
+                    <Entry x:Name="Developer"
+                           Placeholder="Developer"
+                           HorizontalOptions="FillAndExpand" />
+                    <Entry x:Name="Genre"
+                           Placeholder="Genre"
+                           HorizontalOptions="FillAndExpand" />
+                    <Entry x:Name="Platforms"
+                           Placeholder="Platforms"
+                           HorizontalOptions="FillAndExpand" />
+                    <Entry x:Name="FromYear"
+                           Placeholder="From Year Release" 
+                            HorizontalOptions="FillAndExpand"/>
+                    <Entry x:Name="ToYear"
+                           Placeholder="To Year Release" 
+                           HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+
+                <StackLayout Margin="0, 20, 0, 20" Orientation="Horizontal" HorizontalOptions="Center">
+                    <Button Text="Clear" CornerRadius="30" Clicked="Button_Clicked" />
+                    <Button Text="Apply" CornerRadius="30" Clicked="Button_Clicked_1" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
